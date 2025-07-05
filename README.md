@@ -1,1 +1,0 @@
-# bykovas.github.io
