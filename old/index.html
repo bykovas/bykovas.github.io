@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bykovas Tech — Architecture · Systems · Solutions</title>
+  <meta name="description" content="Bykovas Tech — IT architecture, systems design, and pragmatic solutions by Denisas Bykovas." />
+  <meta name="theme-color" content="#1E2A38" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Bykovas Tech" />
+  <meta property="og:description" content="IT architecture, systems design, and pragmatic solutions by Denisas Bykovas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://bykovas.github.io/" />
+  <meta property="og:image" content="https://bykovas.github.io/og-banner.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Fonts: Plus Jakarta Sans only -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand-navy:#1E2A38;      /* dark blue */
+      --brand-accent:#FF6A00;    /* orange  */
+      --bg:#FFFFFF;              /* page background */
+      --bg-soft:#F4F6F8;         /* section/neutral */
+      --text:#212121;            /* primary text */
+      --muted:#6B7280;           /* secondary text */
+      --card:#FFFFFF;            /* cards */
+      --radius:16px;             /* border radius */
+      --shadow:0 10px 30px rgba(0,0,0,.08);
+      --maxw:1120px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --brand-navy:#0F1720;
+        --bg:#0B0F14;
+        --bg-soft:#0F141B;
+        --text:#E5E7EB;
+        --muted:#9CA3AF;
+        --card:#11161C;
+        --shadow:0 10px 30px rgba(0,0,0,.35);
+      }
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:'Plus Jakarta Sans',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    a{color:var(--brand-accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:10;background:color-mix(in srgb, var(--card) 92%, transparent);
+      backdrop-filter:saturate(180%) blur(8px);border-bottom:1px solid rgba(0,0,0,.06)}
+    .nav{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .brand-name{font-weight:700;letter-spacing:.2px;color:var(--brand-navy);font-size:22px}
+
+    /* Nav links + burger */
+    .nav-links{display:flex;gap:22px;align-items:center}
+    .menu-btn{display:none;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.1);background:var(--bg-soft);border-radius:12px;padding:8px 12px}
+    .menu-btn[aria-expanded="true"]{background:var(--brand-accent);color:#fff;border-color:transparent}
+
+    /* Reusable */
+    section{padding:64px 0}
+    h1.title{font-size:clamp(28px,6vw,44px);line-height:1.1;margin:10px 0 16px;color:var(--brand-navy)}
+    h2{margin:0 0 14px;font-size:clamp(20px,3.2vw,28px);color:var(--brand-navy);font-weight:700}
+    .muted{color:var(--muted)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--bg-soft);margin:6px 6px 0 0;font-size:13px;font-weight:600}
+
+    /* Hero */
+    .hero{padding:72px 0 40px;background:
+      radial-gradient(1200px 600px at 80% -100px, rgba(255,106,0,.08), transparent 60%),
+      radial-gradient(1000px 500px at -200px 20%, rgba(30,42,56,.10), transparent 60%)}
+    .hero-inner{display:grid;grid-template-columns:1fr;gap:32px;align-items:center}
+    .kicker{color:var(--brand-accent);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:12px}
+    .hero-cta{margin-top:22px;display:flex;gap:12px;flex-wrap:wrap}
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--brand-accent);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;box-shadow:0 8px 18px rgba(255,106,0,.22)}
+    .cta:hover{transform:translateY(-1px)}
+    .gh{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;background:var(--bg-soft);color:var(--text);font-weight:700}
+
+    /* Photo */
+    .portrait{width:100%;max-width:360px;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:20px;box-shadow:var(--shadow)}
+
+    /* About */
+    .about{background:var(--bg-soft)}
+    .about-grid{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start}
+    .about-logo{width:88px;height:88px}
+
+    /* Footer */
+    footer{padding:32px 0;border-top:1px solid rgba(0,0,0,.06);background:var(--bg-soft)}
+    .foot{display:flex;gap:16px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+    .small{font-size:13px;color:var(--muted)}
+
+    /* Responsive tweaks */
+    @media (max-width:1080px){
+      .wrap{padding:0 18px}
+    }
+    @media (max-width:980px){
+      .about-grid,.grid-2,.grid-3{grid-template-columns:1fr}
+      .nav-links{position:fixed;inset:auto 0 0 0;display:none;flex-direction:column;gap:14px;background:var(--card);padding:16px 18px;border-top:1px solid rgba(0,0,0,.06);box-shadow:0 -8px 22px rgba(0,0,0,.08)}
+      .nav-links.open{display:flex}
+      .menu-btn{display:inline-flex}
+    }
+    @media (max-width:640px){
+      section{padding:42px 0}
+      .cta,.gh{width:100%;justify-content:center}
+      .brand-name{font-size:20px}
+    }
+
+    /* Logo sizing */
+    .logo{width:34px;height:34px}
+
+    /* Motion safety */
+    @media (prefers-reduced-motion: reduce){
+      .cta:hover{transform:none}
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Bykovas Tech">
+        <!-- Inline SVG: three-petal mark (light variant for light bg) -->
+        <svg class="logo" viewBox="0 0 300 300" aria-hidden="true">
+          <path fill="#1E2A38" d="M45 240 C 40 205, 55 170, 90 130 C 125 90, 170 60, 205 50 C 170 92, 145 130, 120 170 C 100 203, 80 230, 60 255 Q 50 248, 45 240 Z"/>
+          <path fill="#FF6A00" d="M235 245 C 260 215, 270 175, 260 140 C 250 100, 220 70, 185 55 C 205 52, 225 60, 242 75 C 285 112, 295 175, 268 230 Q 254 252, 235 245 Z"/>
+          <path fill="#FF6A00" d="M50 265 C 95 285, 160 285, 205 265 C 230 253, 240 235, 235 215 C 210 230, 180 238, 150 240 C 120 242, 90 238, 60 228 C 55 245, 57 257, 50 265 Z"/>
+        </svg>
+        <div class="brand-name">Bykovas <span style="color:var(--brand-accent)">Tech</span></div>
+      </a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <!-- simple burger icon -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        Menu
+      </button>
+
+      <nav class="nav-links" id="navLinks" role="navigation" aria-label="Primary">
+        <a href="#statement">Statement</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#about">About</a>
+        <a class="gh" href="https://github.com/bykovas" target="_blank" rel="noopener">GitHub</a>
+        <a class="cta" href="#contact">Contact</a>
+        <a class="cta" style="background:var(--brand-navy)" href="https://raw.githubusercontent.com/bykovas/bykovas.github.io/main/assets/files/denisas-bykovas.pdf" download rel="noopener">Download CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div>
+        <div class="kicker">By Denisas Bykovas</div>
+        <h1 class="title">Architecture · Systems · Solutions</h1>
+        <p class="muted" style="max-width:720px">
+          System Architect focused on reliability, clarity, and real-world constraints. From .NET microservices to infrastructure (Proxmox/cloud), I help teams deliver maintainable systems that solve business needs — not just technical puzzles.
+        </p>
+        <p class="muted" style="max-width:720px">Helping public institutions and SMEs move from legacy to scalable, observable platforms.</p>
+        <div class="hero-cta">
+          <a class="cta" href="#contact">Start a conversation</a>
+          <a class="gh" href="mailto:bykovas@bykovas.lt">bykovas@bykovas.lt</a>
+          <a class="cta" style="background:var(--brand-navy)" href="https://raw.githubusercontent.com/bykovas/bykovas.github.io/main/assets/files/denisas-bykovas.pdf" download rel="noopener">Download CV</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Developer Statement -->
+  <section id="statement">
+    <div class="wrap">
+      <h2>Developer Statement</h2>
+      <p>I design systems with real-world constraints in mind — from legacy co-existence to infrastructure and team maturity. My architecture work has enabled stable modernization for tax, finance, and manufacturing platforms.</p>
+      <p>I write code that reflects structure and intent — clean, maintainable, and integrated into the bigger architectural picture.</p>
+      <p>Developed internal tools (e.g. NUnit plugins, regression harnesses) that improved test coverage and reduced bug regression in legacy-heavy systems.</p>
+      <p>Known for fast root-cause analysis and minimal, low-risk fixes — especially valuable in regulated environments with complex legacy systems.</p>
+      <p>Mentored engineers into tech leads; facilitated architecture decisions that aligned cross-team vision and reduced tech debt.</p>
+      <p>Delivered systems end-to-end: backend, UI, DevOps, infra — whatever’s needed to ship working, maintainable platforms.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="wrap about-grid">
+      <div>
+        <img class="portrait" src="https://bykovas.github.io/assets/images/bykovas.JPEG" alt="Denisas Bykovas portrait (about)" loading="lazy" />
+      </div>
+      <div>
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+          <svg class="about-logo" viewBox="0 0 300 300" aria-hidden="true">
+            <path fill="#1E2A38" d="M45 240 C 40 205, 55 170, 90 130 C 125 90, 170 60, 205 50 C 170 92, 145 130, 120 170 C 100 203, 80 230, 60 255 Q 50 248, 45 240 Z"/>
+            <path fill="#FF6A00" d="M235 245 C 260 215, 270 175, 260 140 C 250 100, 220 70, 185 55 C 205 52, 225 60, 242 75 C 285 112, 295 175, 268 230 Q 254 252, 235 245 Z"/>
+            <path fill="#FF6A00" d="M50 265 C 95 285, 160 285, 205 265 C 230 253, 240 235, 235 215 C 210 230, 180 238, 150 240 C 120 242, 90 238, 60 228 C 55 245, 57 257, 50 265 Z"/>
+          </svg>
+          <h2 style="margin:0">About me</h2>
+        </div>
+        <p>
+          25+ years in .NET and data platforms. I build pragmatic, resilient systems and lead teams towards maintainable architectures.
+          Comfortable across backend, frontend, DevOps and on-prem/cloud infrastructure.
+        </p>
+        <p class="muted">Vilnius, Lithuania · <a href="mailto:bykovas@bykovas.lt">bykovas@bykovas.lt</a> · <a href="https://github.com/bykovas" target="_blank" rel="noopener">github.com/bykovas</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="wrap">
+      <h2>Services</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Business-oriented Solutions</h3>
+          <p>
+            I don’t sell code as a commodity. I deliver <strong>solutions</strong> that solve real business problems. It’s not just about deploying microservices or compiling binaries — it’s about shaping a system that empowers people and improves outcomes.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Beyond Software</h3>
+          <p>
+            My work spans the whole stack: architecture, infrastructure, DevOps, analytics, and practical guidance. I provide advice on setting up workplaces for maximum productivity, craft documentation and instructions that teams can follow, and ensure technology fits your organization rather than forcing your organization to fit the technology.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Holistic Approach</h3>
+          <p>
+            From workshops with stakeholders to infrastructure blueprints, from coding discipline to cultural mentoring — I bring a holistic approach. The result is not only working software, but a system that your business trusts and your team loves to use.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>LKvitai.MES Tech</h3>
+          <p>Manufacturing execution platform for blinds/roller-shutter production: event-driven microservices (.NET), Node-RED flows, MQTT, shop-floor dashboards (Blazor/Vue), barcode/NFC workflows, and Azure-hosted UI. Integration with accounting/warehouse systems; focus on observability and operator UX.</p>
+          <p>Reduced manual errors by 60%, improved shop-floor data latency from minutes to seconds. System is in daily use by 100+ operators.</p>
+          <p class="muted" style="font-family:ui-monospace,Consolas,Menlo,monospace">.NET · Node-RED · MQTT · MS SQL · Docker · Azure · Kiosk UI</p>
+        </div>
+        <div class="card">
+          <h3>Payments &amp; SEPA (Centrolink)</h3>
+          <p>Architecture and coordination for national SEPA gateway: integrations with RT1, STEP2, TARGET, TIPS EBA; instant / standard SEPA microservices, formats MT/XML/XAdES; secure comms and legacy coexistence.</p>
+          <p>Ensured SEPA compliance under tight ECB timelines. System now processes 500k+ transactions/day.</p>
+          <p class="muted" style="font-family:ui-monospace,Consolas,Menlo,monospace">SEPA · SWIFT · Microservices · Security</p>
+        </div>
+        <div class="card">
+          <h3>Tax Platforms (EDS4)</h3>
+          <p>Led architecture for nationwide electronic declaration platform. Modernization of legacy services with focus on scalability, compliance, and modularity across public sector stakeholders.</p>
+          <p class="muted" style="font-family:ui-monospace,Consolas,Menlo,monospace">GovTech · Scalability · Compliance</p>
+        </div>
+        <div class="card">
+          <h3>Embedded &amp; Telemetry</h3>
+          <p>Water refill station control and automated vehicle access monitoring with computer vision and real-time telemetry. Field firmware guidance and cloud-level aggregation patterns.</p>
+          <p class="muted" style="font-family:ui-monospace,Consolas,Menlo,monospace">Embedded Linux · CV · Telemetry</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact / Results in Numbers -->
+  <section id="impact">
+    <div class="wrap">
+      <h2>Results in Numbers</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>National Tax Platform</h3>
+          <p>Handled 10M+ declarations/year with modular rollout across departments.</p>
+        </div>
+        <div class="card">
+          <h3>SEPA Gateway</h3>
+          <p>Processed 500k+ payments/day; real-time integration with ECB systems.</p>
+        </div>
+        <div class="card">
+          <h3>Shop-floor Automation</h3>
+          <p>Reduced operator input errors by 60%, improved data visibility and traceability.</p>
+        </div>
+        <div class="card">
+          <h3>Team Leadership</h3>
+          <p>Built cross-functional team from scratch; delivered 4 products over 3 years.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <div class="wrap">
+      <h2>Work Experience</h2>
+      <div class="card">
+        <h3>System Architect — Government &amp; Enterprise (2016–present)</h3>
+        <p>Led architecture and delivery of national-scale platforms in tax, finance, and utilities. Focused on modernization, system observability, and long-term maintainability under strict regulatory and operational constraints.</p>
+        <ul>
+          <li><strong>State Tax Inspectorate (VMI):</strong> Architected the EDS4 tax declaration system (10+ million declarations/year), introducing modular architecture for easier evolution and regulatory compliance. Enabled smoother collaboration across multiple government agencies.</li>
+          <li><strong>Bank of Lithuania:</strong> Led system design and integration of SEPA payment gateway (RT1, STEP2, TARGET, TIPS EBA). Balanced modern microservice stack with coexistence of legacy payment processors. Ensured high availability and security for national banking infrastructure.</li>
+          <li><strong>Vilniaus Vandenys:</strong> Designed and delivered embedded control & telemetry solution for unmanned refill stations with real-time access and monitoring. Integrated CV recognition, edge processing and cloud aggregation.</li>
+        </ul>
+        <p class="muted" style="font-family:ui-monospace,Consolas,Menlo,monospace">TOGAF · .NET · MS SQL · Oracle · EDA · CQRS/DDD · Azure · CI/CD · Docker/K8s · OAuth2/JWT</p>
+      </div>
+      <div class="card">
+        <h3>Team Leadership &amp; Management — Flinke Folk AS (2014–2017)</h3>
+        <p>Built the Lithuanian tech team from 0 to 12 engineers. Delivered multiple production platforms in logistics and HR domains for oil &amp; gas clients. Managed projects, hiring, and architecture — hands-on and cross-functional.</p>
+        <p class="muted" style="font-family:ui-monospace,Consolas,Menlo,monospace">Agile · .NET · MS SQL · Azure AD · Project/Team Management</p>
+      </div>
+      <div class="card">
+        <h3>Full-Stack &amp; Enterprise Dev — Enterprise Sector (2004–2014)</h3>
+        <ul>
+          <li><strong>BDO:</strong> Azure-based document &amp; process automation on SharePoint/.NET.</li>
+          <li><strong>UAB Lauresta:</strong> ERP development (70+ apps/services), infra &amp; systems admin (Windows, Exchange, VMware, Cisco ISA).</li>
+          <li><strong>Galeo / Luktarna:</strong> Distributed inventory/payment system for 400+ gas stations (C, C#, Java, SQL Server).</li>
+        </ul>
+        <p class="muted" style="font-family:ui-monospace,Consolas,Menlo,monospace">Security · E-commerce · Process Automation · VPN · Monitoring · Backups</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="wrap">
+      <h2>Core Skills &amp; Technologies</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Architecture</h3>
+          <p>
+            <span class="pill">C4/BPMN/UML</span>
+            <span class="pill">Microservices</span>
+            <span class="pill">Event-driven</span>
+            <span class="pill">CQRS/DDD</span>
+            <span class="pill">Security (OAuth2/JWT)</span>
+            <span class="pill">Cloud (Azure/AWS)</span>
+          </p>
+          <h3>Backend</h3>
+          <p>
+            <span class="pill">.NET/.NET Core</span>
+            <span class="pill">MS SQL</span>
+            <span class="pill">Oracle PL/SQL</span>
+            <span class="pill">API Design</span>
+            <span class="pill">Observability</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>Frontend &amp; Delivery</h3>
+          <p>
+            <span class="pill">ASP.NET Core MVC/Razor</span>
+            <span class="pill">Blazor</span>
+            <span class="pill">React/Vue</span>
+            <span class="pill">WPF</span>
+            <span class="pill">HTML/CSS/JS</span>
+          </p>
+          <h3>DevOps &amp; Infra</h3>
+          <p>
+            <span class="pill">CI/CD</span>
+            <span class="pill">Docker/Kubernetes</span>
+            <span class="pill">Proxmox/PBS</span>
+            <span class="pill">Traefik/Caddy</span>
+            <span class="pill">WireGuard/MQTT</span>
+            <span class="pill">PowerShell/Bash</span>
+            <span class="pill">TCP/IP</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:bykovas@bykovas.lt">bykovas@bykovas.lt</a></p>
+        </div>
+        <div class="card">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/bykovas" target="_blank" rel="noopener">github.com/bykovas</a></p>
+        </div>
+        <div class="card">
+          <h3>LinkedIn</h3>
+          <p><a href="https://www.linkedin.com/in/denisasbykovas/" target="_blank" rel="noopener">linkedin.com/in/denisasbykovas</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer (dark logo on soft bg) -->
+  <footer>
+    <div class="wrap foot">
+      <div style="display:flex;align-items:center;gap:12px">
+        <svg class="logo" viewBox="0 0 300 300" aria-hidden="true">
+          <path fill="#1E2A38" d="M45 240 C 40 205, 55 170, 90 130 C 125 90, 170 60, 205 50 C 170 92, 145 130, 120 170 C 100 203, 80 230, 60 255 Q 50 248, 45 240 Z"/>
+          <path fill="#FF6A00" d="M235 245 C 260 215, 270 175, 260 140 C 250 100, 220 70, 185 55 C 205 52, 225 60, 242 75 C 285 112, 295 175, 268 230 Q 254 252, 235 245 Z"/>
+          <path fill="#FF6A00" d="M50 265 C 95 285, 160 285, 205 265 C 230 253, 240 235, 235 215 C 210 230, 180 238, 150 240 C 120 242, 90 238, 60 228 C 55 245, 57 257, 50 265 Z"/>
+        </svg>
+        <strong>Bykovas <span style="color:var(--brand-accent)">Tech</span></strong>
+      </div>
+      <div class="small">© <span id="y"></span> Bykovas Tech · Vilnius, Lithuania · <a href="mailto:bykovas@bykovas.lt">bykovas@bykovas.lt</a> · <a href="https://raw.githubusercontent.com/bykovas/bykovas.github.io/main/assets/files/denisas-bykovas.pdf" target="_blank" rel="noopener" download>Download CV</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Year stamp
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    const btn = document.getElementById('menuBtn');
+    const links = document.getElementById('navLinks');
+    btn?.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+
+    // Close menu when a link is clicked (mobile UX)
+    links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (links.classList.contains('open')) {
+        links.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+    }));
+  </script>
+</body>
+</html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="lt">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Denisas Bykovas — Sistemų architektas</title>
+<title>Denisas Bykovas — System Architect</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
@@ -103,23 +103,31 @@
 
 
   /* HERO 2-col with portrait */
-  .hero .hero-title{max-width:none;margin-bottom:48px;font-size:clamp(40px,5.6vw,76px)}
-  .hero .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:stretch}
-  .hero .hero-text{display:flex;flex-direction:column;justify-content:space-between}
-  .hero .hero-grid .lede{margin:0 0 18px}
-  .hero .hero-grid .ctas{margin-top:8px}
+  .hero .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center}
   .hero .hero-portrait{
-    width:100%;height:100%;min-height:420px;
-    justify-self:end;
+    aspect-ratio:4/5;width:100%;max-width:420px;justify-self:end;
     border-radius:14px;overflow:hidden;
     background:#1a1d22 center/cover no-repeat;
     background-image:url('assets/portrait.png');
     border:1px solid var(--line);
     position:relative;
   }
+  .hero .hero-portrait::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, transparent 60%, rgba(11,13,16,.55) 100%);
+    pointer-events:none;
+  }
+  .hero .hero-portrait .ph-meta{
+    position:absolute;left:18px;bottom:16px;right:18px;
+    display:flex;justify-content:space-between;align-items:end;gap:12px;
+    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-2);
+    z-index:1;letter-spacing:.04em;
+  }
+  .hero .hero-portrait .ph-meta .l{color:var(--text)}
+  .hero .hero-portrait .ph-meta .r{color:var(--muted)}
   @media(max-width:900px){
     .hero .hero-grid{grid-template-columns:1fr;gap:36px}
-    .hero .hero-portrait{order:-1;justify-self:start;max-width:280px;aspect-ratio:4/5;min-height:0}
+    .hero .hero-portrait{order:-1;justify-self:start;max-width:280px}
   }
   /* SECTION CHROME */
   section{padding:80px 0;position:relative}
@@ -265,17 +273,7 @@
   .lang a:hover{color:var(--text)}
 </style>
 </head>
-<template id="__bundler_thumbnail" data-bg-color="#0B0D10">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="1200" height="800" fill="#0B0D10"/>
-    <g fill="none" stroke="#7CCBFF" stroke-width="6">
-      <circle cx="600" cy="380" r="160"/>
-      <path d="M 380 600 L 600 460 L 820 600"/>
-    </g>
-    <text x="600" y="700" fill="#E8EAEE" font-family="monospace" font-size="42" text-anchor="middle" font-weight="600">DB</text>
-  </svg>
-</template>
-<body data-screen-label="Portfolio · LT">
+<body data-screen-label="Portfolio · IT pro">
 
 <main>
 
@@ -287,31 +285,34 @@
         <span class="at">— bykovas.tech</span>
       </div>
       <div class="links">
-        <a href="#work">darbai</a>
-        <a href="#approach">metodas</a>
-        <a href="#career">karjera</a>
-        <a href="#stack">įrankiai</a>
-        <a href="#contact">kontaktai</a>
-        <span class="lang"><a href="index.html">EN</a><a href="lt.html" class="on">LT</a></span>
+        <a href="#work">work</a>
+        <a href="#approach">approach</a>
+        <a href="#career">career</a>
+        <a href="#stack">stack</a>
+        <a href="#contact">contact</a>
+        <span class="lang"><a href="index.html" class="on">EN</a><a href="lt.html">LT</a></span>
       </div>
     </div>
   </nav>
 
   <section class="hero">
     <div class="wrap">
-      <div class="tag"><span class="d"></span>Priimu projektus · 2026 m. II ketv.</div>
-      <h1 class="hero-title">Sistemų architektūra programinei įrangai, <span class="b">kuri negali sustoti</span>.</h1>
       <div class="hero-grid">
-        <div class="hero-text">
-          <p class="lede">Dirbu su programine įranga, apie kurios sustojimą kitą rytą perskaitytum naujienose: nacionalinis mokesčių deklaravimas, SEPA mokėjimai, reguliuojama gamyba, komunaliniai tinklai. Su .NET ekosistema ir aplink ją dirbu jau dvidešimt penkerius metus.</p>
-          <p class="lede">Didžioji mano darbo dalis nėra blizgi. Nubraižyti architektūrą. Parašyti integraciją, kurios niekas nenori imtis. Atsisėsti tarp penkiolika metų veikiančios senos sistemos ir komandos, kuri nori ją pakeisti per kitą ketvirtį. Tokiose vietose architektūra nėra apie madingiausią karkasą. Ji yra apie gebėjimą sujungti paveldėtas sistemas, reglamentus, realius žmones ir realius terminus — ir paleisti sprendimą, kuris pirmadienio rytą tiesiog veikia.</p>
-          <p class="lede">Sąmoningai dirbu nuo pradžios iki pabaigos. Backend, integracijos, DevOps, infrastruktūra vietoje ir debesyje, o kai reikia — ir UI. Kuo labiau atsitraukiu nuo realiai veikiančios sistemos, tuo prastesni tampa mano sprendimai.</p>
+        <div>
+          <div class="tag"><span class="d"></span>Available for engagements · Q2 2026</div>
+          <h1>System architecture for software <span class="b">that cannot stop</span>.</h1>
+          <p class="lede">I'm Denisas — independent system architect, .NET and data platforms, twenty-five years in. I lead architecture for the kind of software that runs national tax filing, SEPA payments, regulated manufacturing and public utilities. End-to-end: diagram, code, rollout.</p>
           <div class="ctas">
-            <a class="btn primary" href="#contact">Pradėti projektą <span class="arrow">→</span></a>
-            <a class="btn ghost" id="cv-top" href="#" target="_blank" rel="noopener">Atsisiųsti CV ↓</a>
+            <a class="btn primary" href="#contact">Start a project <span class="arrow">→</span></a>
+            <a class="btn ghost" id="cv-top" href="#" target="_blank" rel="noopener">Download CV ↓</a>
           </div>
         </div>
-        <div class="hero-portrait" aria-label="Denisas Bykovas"></div>
+        <div class="hero-portrait" aria-label="Denisas Bykovas">
+          <div class="ph-meta">
+            <span class="l">Denisas Bykovas</span>
+            <span class="r">Vilnius · LT</span>
+          </div>
+        </div>
       </div>
 
       <div class="stat-row" id="stats"></div>
@@ -322,10 +323,10 @@
     <div class="wrap">
       <div class="section-head">
         <div class="l">
-          <div class="kicker">Darbai / 04</div>
-          <h2>Atrinkti projektai</h2>
+          <div class="kicker">Work / 04</div>
+          <h2>Selected projects</h2>
         </div>
-        <div class="r">Nacionalinė ir įmonių apimtis · 2018 — dabar</div>
+        <div class="r">National &amp; enterprise scale · 2018 — present</div>
       </div>
       <div class="projects" id="projects"></div>
     </div>
@@ -335,8 +336,8 @@
     <div class="wrap">
       <div class="section-head">
         <div class="l">
-          <div class="kicker">Metodas</div>
-          <h2>Kaip iš tikrųjų dirbu</h2>
+          <div class="kicker">Approach</div>
+          <h2>How I actually work</h2>
         </div>
       </div>
       <div class="approach" id="approach-grid"></div>
@@ -347,8 +348,8 @@
     <div class="wrap">
       <div class="section-head">
         <div class="l">
-          <div class="kicker">Karjera</div>
-          <h2>Dvidešimt penkeri metai, trys etapai</h2>
+          <div class="kicker">Career</div>
+          <h2>Twenty-five years, three eras</h2>
         </div>
       </div>
       <div class="timeline" id="timeline"></div>
@@ -359,8 +360,8 @@
     <div class="wrap">
       <div class="section-head">
         <div class="l">
-          <div class="kicker">Įrankiai</div>
-          <h2>Įrankiai ir technologijos</h2>
+          <div class="kicker">Stack</div>
+          <h2>Tools &amp; technologies</h2>
         </div>
       </div>
       <div class="skills" id="skills"></div>
@@ -372,18 +373,18 @@
       <div class="contact">
         <div class="inner">
           <div>
-            <h2>Jei sistema <span class="b">privalo veikti</span>, pakalbėkime.</h2>
-            <p>Architektūros sutartys, konsultacijos ir mažos praktinės įgyvendinimo komandos. Reguliuojama aplinka, sambūvis su senomis sistemomis, nacionalinė arba įmonių apimtis.</p>
+            <h2>If the system has to <span class="b">keep running</span>, we should talk.</h2>
+            <p>Architecture contracts, advisory engagements, and small hands-on delivery teams. Regulated environments, legacy co-existence, national or enterprise scale.</p>
             <div class="ctas">
-              <a class="btn primary" href="mailto:bykovas@bykovas.lt">Parašyti man <span class="arrow">→</span></a>
-              <a class="btn ghost" id="cv-bot" href="#" target="_blank" rel="noopener">Atsisiųsti CV ↓</a>
+              <a class="btn primary" href="mailto:bykovas@bykovas.lt">Email me <span class="arrow">→</span></a>
+              <a class="btn ghost" id="cv-bot" href="#" target="_blank" rel="noopener">Download CV ↓</a>
             </div>
           </div>
           <div class="right">
-            <a href="mailto:bykovas@bykovas.lt"><span class="k">El. paštas</span><span class="v">bykovas@bykovas.lt</span></a>
+            <a href="mailto:bykovas@bykovas.lt"><span class="k">Email</span><span class="v">bykovas@bykovas.lt</span></a>
             <a href="https://github.com/bykovas" target="_blank" rel="noopener"><span class="k">GitHub</span><span class="v">@bykovas</span></a>
             <a href="https://www.linkedin.com/in/denisasbykovas/" target="_blank" rel="noopener"><span class="k">LinkedIn</span><span class="v">denisasbykovas</span></a>
-            <a><span class="k">Vieta</span><span class="v">Vilnius · LT · EET</span></a>
+            <a><span class="k">Location</span><span class="v">Vilnius · LT · EET</span></a>
           </div>
         </div>
       </div>
@@ -392,8 +393,8 @@
 
   <div class="wrap">
     <footer>
-      <div>© <span id="y"></span> Denisas Bykovas · Sukurta rūpestingai, ne karkasais.</div>
-      <div><a href="https://github.com/bykovas/bykovas.github.io" target="_blank" rel="noopener">Atviras kodas</a></div>
+      <div>© <span id="y"></span> Denisas Bykovas · Built with care, not frameworks.</div>
+      <div><a href="https://github.com/bykovas/bykovas.github.io" target="_blank" rel="noopener">View source</a></div>
     </footer>
   </div>
 
@@ -403,64 +404,64 @@
 const P = {
   cvUrl:"https://raw.githubusercontent.com/bykovas/bykovas.github.io/main/assets/files/denisas-bykovas.pdf",
   stats:[
-    {v:"10",u:"M+",k:"deklaracijų / metus",c:"EDS4 · VMI"},
-    {v:"500",u:"k+",k:"SEPA mokėjimų / dieną",c:"Lietuvos bankas"},
-    {v:"100",u:"+",k:"MES operatorių / dieną",c:"LKvitai"},
-    {v:"25",u:"m.",k:".NET ir duomenys",c:"Nuo 2000 m."},
+    {v:"10",u:"M+",k:"tax declarations / year",c:"EDS4 · VMI"},
+    {v:"500",u:"k+",k:"SEPA payments / day",c:"Bank of Lithuania"},
+    {v:"100",u:"+",k:"daily MES operators",c:"LKvitai"},
+    {v:"25",u:"yrs",k:".NET & data platforms",c:"Active since 2000"},
   ],
   projects:[
-    { sector:"GovTech · Nacionalinis", year:"2019 — dabar",
-      title:"EDS4 — Elektroninių deklaracijų sistema",
-      client:"Valstybinė mokesčių inspekcija · Vyr. architektas",
-      desc:"Modulinis nacionalinės mokesčių deklaravimo sistemos pakeitimas. Ja naudojasi visi šalies mokesčių mokėtojai ir buhalteriai. Diegimas be prastovos, stebimas reguliatoriaus, suprojektuotas nuolatiniam reglamentų kitimui.",
-      metrics:[{k:"Deklaracijų / m.",v:"10M+",hi:true},{k:"Prastova",v:"nulinė",hi:true},{k:"Įstaigos",v:"kelios"}],
+    { sector:"GovTech · National", year:"2019 — present",
+      title:"EDS4 — National Tax Declaration Platform",
+      client:"State Tax Inspectorate · Lead Architect",
+      desc:"Modular replacement of the legacy national tax filing system, used by every taxpayer and accountant in Lithuania. Zero-downtime rollout, regulator-observable, designed to absorb continuous regulatory change.",
+      metrics:[{k:"Declarations / yr",v:"10M+",hi:true},{k:"Downtime",v:"zero",hi:true},{k:"Agencies",v:"multiple"}],
       stack:[".NET","MS SQL","Oracle","EDA","CQRS","Azure","OAuth2"]
     },
-    { sector:"FinTech · Mokėjimai", year:"2018 — 2022",
-      title:"Nacionalinis SEPA mokėjimų vartai",
-      client:"Lietuvos bankas · Architektas ir integracijų vadovas",
-      desc:"Nacionaliniai vartai, jungiantys Lietuvą su Europos mokėjimų infrastruktūra. Greitieji ir įprasti SEPA mokėjimai, pasirašytos žinutės, stebimi reguliatoriaus, įdiegti šalia senų procesorių be vienkartinio perjungimo.",
-      metrics:[{k:"Pralaidumas",v:"500k+/d.",hi:true},{k:"Schemos",v:"RT1 · STEP2"},{k:"Veikimas",v:"24/7"}],
+    { sector:"FinTech · Payments", year:"2018 — 2022",
+      title:"National SEPA Payment Gateway",
+      client:"Bank of Lithuania · Architect & Integration Lead",
+      desc:"National gateway connecting Lithuania to pan-European payment rails. Instant and standard SEPA, signed messaging, regulator-observable, deployed alongside legacy processors with no flag day.",
+      metrics:[{k:"Throughput",v:"500k+/day",hi:true},{k:"Rails",v:"RT1 · STEP2"},{k:"Uptime",v:"24/7"}],
       stack:["SEPA","SWIFT",".NET","Microservices","XAdES","mTLS"]
     },
-    { sector:"Gamyba · MES", year:"2021 — dabar",
-      title:"LKvitai.MES — gamybos vykdymo sistema",
-      client:"LKvitai · Architektas, praktiškai",
-      desc:"Įvykiais paremta gamybos vykdymo sistema žaliuzių ir roletų gamintojui. .NET mikroservisai per MQTT, Node-RED srautų orkestravimas, kioskinės sąsajos operatoriams, integruota su ERP ir sandėliu.",
-      metrics:[{k:"Operatorių klaidos",v:"−60%",hi:true},{k:"Vėlavimas",v:"min → s"},{k:"Vartotojai / d.",v:"100+"}],
+    { sector:"Manufacturing · MES", year:"2021 — present",
+      title:"LKvitai.MES — Shop-Floor Execution",
+      client:"LKvitai · Architect, hands-on",
+      desc:"Event-driven manufacturing execution system for window-blinds production. .NET microservices on MQTT, Node-RED orchestration, kiosk UIs for operators, integrated into ERP and warehouse.",
+      metrics:[{k:"Operator errors",v:"−60%",hi:true},{k:"Latency",v:"min → sec"},{k:"Daily users",v:"100+"}],
       stack:[".NET","MQTT","Node-RED","Blazor","Vue","Azure","Docker"]
     },
-    { sector:"Komunalinės · Embedded", year:"2020 — 2021",
-      title:"Bepiločio vandens užpylimo stotelės",
-      client:"Vilniaus vandenys · Architektas",
-      desc:"Įterptinis valdymas ir telemetrija miesto bepilotėms vandens užpylimo stotelėms. Kompiuterinis vaizdo atpažinimas pakraštyje, telemetrija realiu laiku, debesies pusės agregavimas ir prieigos kontrolė.",
-      metrics:[{k:"Veikimas",v:"bepilotis",hi:true},{k:"Pakraštys",v:"Linux + CV"},{k:"Telemetrija",v:"real. laiku"}],
-      stack:["Embedded Linux","CV","MQTT","Telemetrija"]
+    { sector:"Utilities · Embedded", year:"2020 — 2021",
+      title:"Unmanned Water Refill Stations",
+      client:"Vilniaus Vandenys · Architect",
+      desc:"Embedded control and telemetry for unmanned refill stations across the city. Edge computer-vision plate recognition, real-time telemetry, cloud-side aggregation and access control.",
+      metrics:[{k:"Operation",v:"unmanned",hi:true},{k:"Edge",v:"Linux + CV"},{k:"Telemetry",v:"real-time"}],
+      stack:["Embedded Linux","CV","MQTT","Telemetry"]
     },
   ],
   approach:[
-    {n:"01",t:"Sistemos, ne stekai",d:"Architektūra, kuri vertina senas sistemas, reglamentus ir realią komandą kaip tikrus apribojimus, o ne kliūtis pakeisti perrašant."},
-    {n:"02",t:"Atsakomybė nuo galo iki galo",d:"Backendas, integracijos, DevOps, infrastruktūra — ir šiek tiek UI, kai svarbu. Kuo toliau nuo veikiančios sistemos, tuo prastesni mano sprendimai."},
-    {n:"03",t:"Minimalūs, mažos rizikos taisymai",d:"Greita priežasties analizė reguliuojamoje aplinkoje. Chirurginiai pakeitimai vietoje perrašymų, kai sistema jau veikia."},
-    {n:"04",t:"Palieku komandą stipresnę",d:"Auginu inžinierius iki tech lead. Suderinu sprendimus tarp komandų, mažinu techninę skolą su kiekvienu leidimu — ne po jo."},
+    {n:"01",t:"Systems, not stacks",d:"Architecture that treats legacy, regulation, and the team you actually have as real constraints — not obstacles to refactor away."},
+    {n:"02",t:"End-to-end ownership",d:"Backend, integration, DevOps, infrastructure — and a bit of UI when it matters. The further from the running system, the worse my decisions get."},
+    {n:"03",t:"Minimal, low-risk fixes",d:"Fast root-cause analysis in regulated environments. Surgical changes over rewrites when the system is already live and observed."},
+    {n:"04",t:"Leave the team stronger",d:"Mentor engineers into tech leads. Align decisions across teams, reduce tech debt with each release — not after."},
   ],
   career:[
-    { y:"2016 — dabar", era:"Dabar", t:"Sistemų architektas", o:"Vyriausybė ir įmonės · nepriklausomas / pagal sutartį",
-      bullets:["EDS4 — nacionalinė mokesčių platforma, modulinė architektūra šalies apimtimi","SEPA vartai per RT1, STEP2, TARGET, TIPS EBA","Įterptinė telemetrija ir CV bepilotėms komunalinėms stotelėms","Įvykiais paremtas MES, gamybos integracija Azure"],
+    { y:"2016 — present", era:"Current", t:"System Architect", o:"Government & enterprise · independent / contracted",
+      bullets:["EDS4 — national tax platform, modular architecture at country scale","SEPA gateway across RT1, STEP2, TARGET, TIPS EBA","Embedded telemetry & CV for unmanned utility stations","Event-driven MES, shop-floor integration on Azure"],
       stack:["TOGAF",".NET","MS SQL","Oracle","EDA","Azure","K8s"]
     },
-    { y:"2014 — 2017", era:"Vadovavimas", t:"Komandos vadovas · Inžinerijos vadybininkas", o:"Flinke Folk AS · Lietuvos biuras",
-      bullets:["Sukūriau Vilniaus inžinerijos komandą nuo 0 iki 12","Logistikos ir HR platformos naftos ir dujų klientams","Praktiškai prie architektūros, samdos ir įgyvendinimo"],
+    { y:"2014 — 2017", era:"Leadership", t:"Team Lead · Engineering Manager", o:"Flinke Folk AS · Lithuania office",
+      bullets:["Built the Vilnius engineering team from 0 to 12","Logistics and HR platforms for oil & gas clients","Hands-on across architecture, hiring and delivery"],
       stack:["Agile",".NET","MS SQL","Azure AD"]
     },
-    { y:"2004 — 2014", era:"Pamatai", t:"Full-stack ir įmonių programuotojas", o:"BDO · Lauresta · Galeo / Luktarna",
-      bullets:["BDO — dokumentų ir procesų automatizavimas Azure ant SharePoint + .NET","Lauresta — savos ERP, 70+ servisų, visa infrastruktūra","Galeo / Luktarna — paskirstytas inventorius ir mokėjimai 400+ degalinių"],
+    { y:"2004 — 2014", era:"Foundations", t:"Full-stack & Enterprise Developer", o:"BDO · Lauresta · Galeo / Luktarna",
+      bullets:["BDO — Azure document and process automation on SharePoint + .NET","Lauresta — homegrown ERP, 70+ services, full infrastructure ownership","Galeo / Luktarna — distributed inventory & payments for 400+ gas stations"],
       stack:["C","C#","Java","SQL Server","VMware"]
     },
   ],
   skills:[
-    {g:"Architektūra", i:["C4 · BPMN · UML","Mikroservisai","Įvykiais paremta","CQRS · DDD","OAuth2 · JWT","Azure · AWS"]},
-    {g:"Backend",      i:[".NET · .NET Core","MS SQL","Oracle PL/SQL","API dizainas","Stebėsena"]},
+    {g:"Architecture", i:["C4 · BPMN · UML","Microservices","Event-driven","CQRS · DDD","OAuth2 · JWT","Azure · AWS"]},
+    {g:"Backend",      i:[".NET · .NET Core","MS SQL","Oracle PL/SQL","API design","Observability"]},
     {g:"Frontend",     i:["ASP.NET Core MVC","Blazor","React · Vue","WPF"]},
     {g:"DevOps",       i:["CI/CD","Docker · K8s","Proxmox · PBS","Traefik · Caddy","WireGuard · MQTT"]},
   ],
