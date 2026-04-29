@@ -54,7 +54,6 @@
   }
   .topbar .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;font-size:14px}
   .topbar .brand{display:flex;align-items:center;gap:10px;font-weight:500}
-  .topbar .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(124,227,166,.5)}
   .topbar .brand .who{color:var(--text)}
   .topbar .brand .at{color:var(--muted)}
   .topbar .links{display:flex;gap:6px}
@@ -62,7 +61,7 @@
   .topbar .links a:hover{background:var(--bg-3);color:var(--text)}
 
   /* HERO */
-  .hero{padding:88px 0 72px;position:relative}
+  .hero{padding:72px 0 64px;position:relative}
   .hero .tag{
     display:inline-flex;align-items:center;gap:8px;
     padding:6px 12px;border:1px solid var(--line-2);border-radius:99px;
@@ -72,8 +71,8 @@
   .hero .tag .d{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(124,227,166,.6)}
   .hero h1{
     font-family:'Inter',sans-serif;font-weight:600;
-    font-size:clamp(36px,5.4vw,68px);line-height:1.04;letter-spacing:-.025em;
-    margin:0 0 28px;max-width:18ch;color:var(--text)
+    font-size:clamp(34px,4.8vw,60px);line-height:1.03;letter-spacing:-.025em;
+    margin:0 0 28px;max-width:22ch;color:var(--text)
   }
   .hero h1 .b{
     background:linear-gradient(90deg,var(--accent) 0%, var(--accent-2) 100%);
@@ -103,31 +102,23 @@
 
 
   /* HERO 2-col with portrait */
-  .hero .hero-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:center}
+  .hero .hero-title{max-width:24ch;margin-bottom:36px;font-size:clamp(38px,4.9vw,62px)}
+  .hero .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:stretch}
+  .hero .hero-text{display:flex;flex-direction:column;justify-content:space-between}
+  .hero .hero-grid .lede{margin:0 0 18px}
+  .hero .hero-grid .ctas{margin-top:8px}
   .hero .hero-portrait{
-    aspect-ratio:4/5;width:100%;max-width:420px;justify-self:end;
+    width:100%;height:100%;min-height:420px;
+    justify-self:end;
     border-radius:14px;overflow:hidden;
     background:#1a1d22 center/cover no-repeat;
     background-image:url('assets/portrait.png');
     border:1px solid var(--line);
     position:relative;
   }
-  .hero .hero-portrait::after{
-    content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg, transparent 60%, rgba(11,13,16,.55) 100%);
-    pointer-events:none;
-  }
-  .hero .hero-portrait .ph-meta{
-    position:absolute;left:18px;bottom:16px;right:18px;
-    display:flex;justify-content:space-between;align-items:end;gap:12px;
-    font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text-2);
-    z-index:1;letter-spacing:.04em;
-  }
-  .hero .hero-portrait .ph-meta .l{color:var(--text)}
-  .hero .hero-portrait .ph-meta .r{color:var(--muted)}
   @media(max-width:900px){
     .hero .hero-grid{grid-template-columns:1fr;gap:36px}
-    .hero .hero-portrait{order:-1;justify-self:start;max-width:280px}
+    .hero .hero-portrait{order:-1;justify-self:start;max-width:280px;aspect-ratio:4/5;min-height:0}
   }
   /* SECTION CHROME */
   section{padding:80px 0;position:relative}
@@ -243,12 +234,6 @@
   footer{padding:28px 0 48px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
   footer a:hover{color:var(--accent)}
 
-  @media(max-width:560px){
-    .stat-row{grid-template-columns:1fr 1fr}
-    .stat-row .s{padding:18px 14px;border-left:1px solid var(--line)}
-    .stat-row .s:nth-child(2n+1){border-left:0;padding-left:0}
-  }
-
   /* Portrait */
   .portrait{
     width:44px;height:44px;border-radius:50%;
@@ -258,22 +243,92 @@
     border:1px solid var(--line-2);
     flex-shrink:0;
   }
-  .hero .portrait-lg{
-    width:88px;height:88px;border-radius:50%;
-    background:#222 center/cover no-repeat;
-    background-image:url('assets/portrait.png');
-    background-position:50% 28%;
-    border:1px solid var(--line-2);
-    margin-bottom:24px;
-  }
   /* Lang switcher */
   .lang{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:11px;margin-left:8px}
   .lang a{padding:5px 9px;color:var(--muted)}
   .lang a.on{background:var(--bg-3);color:var(--text)}
   .lang a:hover{color:var(--text)}
+
+  @media(max-width:720px){
+    .wrap{padding:0 20px}
+
+    .topbar .inner{align-items:flex-start;flex-wrap:wrap;gap:10px;padding:10px 0 12px}
+    .topbar .brand{width:100%;gap:9px}
+    .topbar .brand .at{display:none}
+    .topbar .links{width:100%;gap:4px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+    .topbar .links::-webkit-scrollbar{display:none}
+    .topbar .links a{flex:0 0 auto;padding:6px 9px;font-size:12px}
+    .lang{flex:0 0 auto;margin-left:2px}
+    .lang a{padding:6px 9px}
+    .portrait{width:38px;height:38px}
+
+    .hero{padding:44px 0 48px}
+    .hero .tag{margin-bottom:24px;max-width:100%;white-space:normal;line-height:1.4}
+    .hero h1,
+    .hero .hero-title{font-size:42px;line-height:1.06;margin-bottom:28px;max-width:100%}
+    .hero .hero-grid{gap:28px}
+    .hero .hero-text{display:block}
+    .hero .hero-grid .lede{font-size:16px;line-height:1.6;margin-bottom:16px}
+    .hero .hero-grid .ctas{margin-top:22px;margin-bottom:34px}
+    .hero .hero-portrait{justify-self:center;width:min(100%,240px);max-width:240px;background-position:center top}
+    .hero .ctas .btn{flex:1 1 160px;justify-content:center}
+
+    .stat-row{grid-template-columns:1fr 1fr}
+    .stat-row .s{padding:18px 14px;border-left:1px solid var(--line)}
+    .stat-row .s:nth-child(2n+1){border-left:0;padding-left:0}
+    .stat-row .s .v{font-size:26px}
+
+    section{padding:56px 0}
+    .section-head{align-items:flex-start;margin-bottom:24px;gap:10px}
+    .section-head h2{font-size:26px}
+
+    .projects{gap:14px}
+    .card{padding:20px;border-radius:12px;gap:14px}
+    .card::after{border-radius:12px}
+    .card .head{align-items:flex-start;gap:10px}
+    .card h3{font-size:20px}
+    .card .metrics{gap:10px}
+
+    .approach,
+    .skills{grid-template-columns:1fr}
+    .ap,
+    .sk-col{padding:20px}
+
+    .timeline{padding-left:14px}
+    .role{grid-template-columns:1fr;gap:8px;padding:20px 0}
+    .role::before{left:-18px}
+
+    .contact{padding:30px 20px;border-radius:14px;margin-bottom:56px}
+    .contact .inner{gap:28px}
+    .contact h2{font-size:30px;max-width:16ch}
+    .contact p{font-size:15.5px}
+    .contact .ctas .btn{flex:1 1 160px;justify-content:center}
+    .contact .right a{align-items:flex-start;flex-direction:column;gap:4px}
+
+    footer{padding:24px 0 36px;flex-direction:column}
+  }
+
+  @media(max-width:420px){
+    .wrap{padding:0 18px}
+    .topbar .links a{padding:6px 8px}
+    .hero h1,
+    .hero .hero-title{font-size:36px;max-width:100%}
+    .hero .hero-grid .lede{font-size:15.5px}
+    .hero .ctas .btn,
+    .contact .ctas .btn{flex-basis:100%}
+    .hero .hero-portrait{max-width:220px}
+
+    .stat-row{grid-template-columns:1fr}
+    .stat-row .s{border-left:0;border-top:1px solid var(--line);padding:16px 0}
+    .stat-row .s:first-child{border-top:0}
+    .stat-row .s:nth-child(2n+1){padding-left:0}
+
+    .card .metrics .m{flex-basis:100%}
+    .contact{padding:26px 18px}
+  }
 </style>
 </head>
-<body data-screen-label="Portfolio · IT pro">
+<body data-screen-label="Portfolio · EN">
 
 <main>
 
@@ -290,29 +345,26 @@
         <a href="#career">career</a>
         <a href="#stack">stack</a>
         <a href="#contact">contact</a>
-        <span class="lang"><a href="index.html" class="on">EN</a><a href="lt.html">LT</a></span>
+        <span class="lang"><a href="en.html" class="on">EN</a><a href="index.html">LT</a></span>
       </div>
     </div>
   </nav>
 
   <section class="hero">
     <div class="wrap">
+      <div class="tag"><span class="d"></span>Available for engagements · Q2 2026</div>
+      <h1 class="hero-title">System architecture for software <span class="b">that cannot stop</span>.</h1>
       <div class="hero-grid">
-        <div>
-          <div class="tag"><span class="d"></span>Available for engagements · Q2 2026</div>
-          <h1>System architecture for software <span class="b">that cannot stop</span>.</h1>
-          <p class="lede">I'm Denisas — independent system architect, .NET and data platforms, twenty-five years in. I lead architecture for the kind of software that runs national tax filing, SEPA payments, regulated manufacturing and public utilities. End-to-end: diagram, code, rollout.</p>
+        <div class="hero-text">
+          <p class="lede">I work on software whose outage would be in the news the next morning: national tax filing, SEPA payments, regulated manufacturing, and public utilities. I have worked in and around the .NET ecosystem for twenty-five years.</p>
+          <p class="lede">Most of my work is not shiny. Draw the architecture. Write the integration nobody wants to own. Sit between a fifteen-year-old legacy system and a team that wants to replace it next quarter. In places like that, architecture is not about the trendiest framework. It is about connecting legacy systems, regulation, real people, and real deadlines — and shipping a solution that simply works on Monday morning.</p>
+          <p class="lede">I deliberately work end to end. Backend, integrations, DevOps, on-prem and cloud infrastructure, and when needed — UI. I make my best decisions when I am close to the system that is actually running.</p>
           <div class="ctas">
             <a class="btn primary" href="#contact">Start a project <span class="arrow">→</span></a>
             <a class="btn ghost" id="cv-top" href="#" target="_blank" rel="noopener">Download CV ↓</a>
           </div>
         </div>
-        <div class="hero-portrait" aria-label="Denisas Bykovas">
-          <div class="ph-meta">
-            <span class="l">Denisas Bykovas</span>
-            <span class="r">Vilnius · LT</span>
-          </div>
-        </div>
+        <div class="hero-portrait" aria-label="Denisas Bykovas"></div>
       </div>
 
       <div class="stat-row" id="stats"></div>
@@ -402,7 +454,7 @@
 
 <script>
 const P = {
-  cvUrl:"https://raw.githubusercontent.com/bykovas/bykovas.github.io/main/assets/files/denisas-bykovas.pdf",
+  cvUrl:"assets/files/denisas-bykovas.pdf",
   stats:[
     {v:"10",u:"M+",k:"tax declarations / year",c:"EDS4 · VMI"},
     {v:"500",u:"k+",k:"SEPA payments / day",c:"Bank of Lithuania"},

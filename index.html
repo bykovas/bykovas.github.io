@@ -54,7 +54,6 @@
   }
   .topbar .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;font-size:14px}
   .topbar .brand{display:flex;align-items:center;gap:10px;font-weight:500}
-  .topbar .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px rgba(124,227,166,.5)}
   .topbar .brand .who{color:var(--text)}
   .topbar .brand .at{color:var(--muted)}
   .topbar .links{display:flex;gap:6px}
@@ -62,7 +61,7 @@
   .topbar .links a:hover{background:var(--bg-3);color:var(--text)}
 
   /* HERO */
-  .hero{padding:88px 0 72px;position:relative}
+  .hero{padding:72px 0 64px;position:relative}
   .hero .tag{
     display:inline-flex;align-items:center;gap:8px;
     padding:6px 12px;border:1px solid var(--line-2);border-radius:99px;
@@ -72,8 +71,8 @@
   .hero .tag .d{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px rgba(124,227,166,.6)}
   .hero h1{
     font-family:'Inter',sans-serif;font-weight:600;
-    font-size:clamp(36px,5.4vw,68px);line-height:1.04;letter-spacing:-.025em;
-    margin:0 0 28px;max-width:18ch;color:var(--text)
+    font-size:clamp(34px,4.8vw,60px);line-height:1.03;letter-spacing:-.025em;
+    margin:0 0 28px;max-width:22ch;color:var(--text)
   }
   .hero h1 .b{
     background:linear-gradient(90deg,var(--accent) 0%, var(--accent-2) 100%);
@@ -103,7 +102,7 @@
 
 
   /* HERO 2-col with portrait */
-  .hero .hero-title{max-width:none;margin-bottom:48px;font-size:clamp(40px,5.6vw,76px)}
+  .hero .hero-title{max-width:24ch;margin-bottom:36px;font-size:clamp(38px,4.9vw,62px)}
   .hero .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:stretch}
   .hero .hero-text{display:flex;flex-direction:column;justify-content:space-between}
   .hero .hero-grid .lede{margin:0 0 18px}
@@ -235,12 +234,6 @@
   footer{padding:28px 0 48px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
   footer a:hover{color:var(--accent)}
 
-  @media(max-width:560px){
-    .stat-row{grid-template-columns:1fr 1fr}
-    .stat-row .s{padding:18px 14px;border-left:1px solid var(--line)}
-    .stat-row .s:nth-child(2n+1){border-left:0;padding-left:0}
-  }
-
   /* Portrait */
   .portrait{
     width:44px;height:44px;border-radius:50%;
@@ -250,31 +243,91 @@
     border:1px solid var(--line-2);
     flex-shrink:0;
   }
-  .hero .portrait-lg{
-    width:88px;height:88px;border-radius:50%;
-    background:#222 center/cover no-repeat;
-    background-image:url('assets/portrait.png');
-    background-position:50% 28%;
-    border:1px solid var(--line-2);
-    margin-bottom:24px;
-  }
   /* Lang switcher */
   .lang{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:11px;margin-left:8px}
   .lang a{padding:5px 9px;color:var(--muted)}
   .lang a.on{background:var(--bg-3);color:var(--text)}
   .lang a:hover{color:var(--text)}
+
+  @media(max-width:720px){
+    .wrap{padding:0 20px}
+
+    .topbar .inner{align-items:flex-start;flex-wrap:wrap;gap:10px;padding:10px 0 12px}
+    .topbar .brand{width:100%;gap:9px}
+    .topbar .brand .at{display:none}
+    .topbar .links{width:100%;gap:4px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+    .topbar .links::-webkit-scrollbar{display:none}
+    .topbar .links a{flex:0 0 auto;padding:6px 9px;font-size:12px}
+    .lang{flex:0 0 auto;margin-left:2px}
+    .lang a{padding:6px 9px}
+    .portrait{width:38px;height:38px}
+
+    .hero{padding:44px 0 48px}
+    .hero .tag{margin-bottom:24px;max-width:100%;white-space:normal;line-height:1.4}
+    .hero h1,
+    .hero .hero-title{font-size:42px;line-height:1.06;margin-bottom:28px;max-width:100%}
+    .hero .hero-grid{gap:28px}
+    .hero .hero-text{display:block}
+    .hero .hero-grid .lede{font-size:16px;line-height:1.6;margin-bottom:16px}
+    .hero .hero-grid .ctas{margin-top:22px;margin-bottom:34px}
+    .hero .hero-portrait{justify-self:center;width:min(100%,240px);max-width:240px;background-position:center top}
+    .hero .ctas .btn{flex:1 1 160px;justify-content:center}
+
+    .stat-row{grid-template-columns:1fr 1fr}
+    .stat-row .s{padding:18px 14px;border-left:1px solid var(--line)}
+    .stat-row .s:nth-child(2n+1){border-left:0;padding-left:0}
+    .stat-row .s .v{font-size:26px}
+
+    section{padding:56px 0}
+    .section-head{align-items:flex-start;margin-bottom:24px;gap:10px}
+    .section-head h2{font-size:26px}
+
+    .projects{gap:14px}
+    .card{padding:20px;border-radius:12px;gap:14px}
+    .card::after{border-radius:12px}
+    .card .head{align-items:flex-start;gap:10px}
+    .card h3{font-size:20px}
+    .card .metrics{gap:10px}
+
+    .approach,
+    .skills{grid-template-columns:1fr}
+    .ap,
+    .sk-col{padding:20px}
+
+    .timeline{padding-left:14px}
+    .role{grid-template-columns:1fr;gap:8px;padding:20px 0}
+    .role::before{left:-18px}
+
+    .contact{padding:30px 20px;border-radius:14px;margin-bottom:56px}
+    .contact .inner{gap:28px}
+    .contact h2{font-size:30px;max-width:16ch}
+    .contact p{font-size:15.5px}
+    .contact .ctas .btn{flex:1 1 160px;justify-content:center}
+    .contact .right a{align-items:flex-start;flex-direction:column;gap:4px}
+
+    footer{padding:24px 0 36px;flex-direction:column}
+  }
+
+  @media(max-width:420px){
+    .wrap{padding:0 18px}
+    .topbar .links a{padding:6px 8px}
+    .hero h1,
+    .hero .hero-title{font-size:36px;max-width:100%}
+    .hero .hero-grid .lede{font-size:15.5px}
+    .hero .ctas .btn,
+    .contact .ctas .btn{flex-basis:100%}
+    .hero .hero-portrait{max-width:220px}
+
+    .stat-row{grid-template-columns:1fr}
+    .stat-row .s{border-left:0;border-top:1px solid var(--line);padding:16px 0}
+    .stat-row .s:first-child{border-top:0}
+    .stat-row .s:nth-child(2n+1){padding-left:0}
+
+    .card .metrics .m{flex-basis:100%}
+    .contact{padding:26px 18px}
+  }
 </style>
 </head>
-<template id="__bundler_thumbnail" data-bg-color="#0B0D10">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="1200" height="800" fill="#0B0D10"/>
-    <g fill="none" stroke="#7CCBFF" stroke-width="6">
-      <circle cx="600" cy="380" r="160"/>
-      <path d="M 380 600 L 600 460 L 820 600"/>
-    </g>
-    <text x="600" y="700" fill="#E8EAEE" font-family="monospace" font-size="42" text-anchor="middle" font-weight="600">DB</text>
-  </svg>
-</template>
 <body data-screen-label="Portfolio · LT">
 
 <main>
@@ -292,7 +345,7 @@
         <a href="#career">karjera</a>
         <a href="#stack">įrankiai</a>
         <a href="#contact">kontaktai</a>
-        <span class="lang"><a href="index.html">EN</a><a href="lt.html" class="on">LT</a></span>
+        <span class="lang"><a href="en.html">EN</a><a href="index.html" class="on">LT</a></span>
       </div>
     </div>
   </nav>
@@ -305,7 +358,7 @@
         <div class="hero-text">
           <p class="lede">Dirbu su programine įranga, apie kurios sustojimą kitą rytą perskaitytum naujienose: nacionalinis mokesčių deklaravimas, SEPA mokėjimai, reguliuojama gamyba, komunaliniai tinklai. Su .NET ekosistema ir aplink ją dirbu jau dvidešimt penkerius metus.</p>
           <p class="lede">Didžioji mano darbo dalis nėra blizgi. Nubraižyti architektūrą. Parašyti integraciją, kurios niekas nenori imtis. Atsisėsti tarp penkiolika metų veikiančios senos sistemos ir komandos, kuri nori ją pakeisti per kitą ketvirtį. Tokiose vietose architektūra nėra apie madingiausią karkasą. Ji yra apie gebėjimą sujungti paveldėtas sistemas, reglamentus, realius žmones ir realius terminus — ir paleisti sprendimą, kuris pirmadienio rytą tiesiog veikia.</p>
-          <p class="lede">Sąmoningai dirbu nuo pradžios iki pabaigos. Backend, integracijos, DevOps, infrastruktūra vietoje ir debesyje, o kai reikia — ir UI. Kuo labiau atsitraukiu nuo realiai veikiančios sistemos, tuo prastesni tampa mano sprendimai.</p>
+          <p class="lede">Sąmoningai dirbu nuo pradžios iki pabaigos. Backend, integracijos, DevOps, infrastruktūra vietoje ir debesyje, o kai reikia — ir UI. Geriausius sprendimus priimu tada, kai esu arti realiai veikiančios sistemos.</p>
           <div class="ctas">
             <a class="btn primary" href="#contact">Pradėti projektą <span class="arrow">→</span></a>
             <a class="btn ghost" id="cv-top" href="#" target="_blank" rel="noopener">Atsisiųsti CV ↓</a>
@@ -401,7 +454,7 @@
 
 <script>
 const P = {
-  cvUrl:"https://raw.githubusercontent.com/bykovas/bykovas.github.io/main/assets/files/denisas-bykovas.pdf",
+  cvUrl:"assets/files/denisas-bykovas.pdf",
   stats:[
     {v:"10",u:"M+",k:"deklaracijų / metus",c:"EDS4 · VMI"},
     {v:"500",u:"k+",k:"SEPA mokėjimų / dieną",c:"Lietuvos bankas"},
