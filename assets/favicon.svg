@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7CCBFF"></stop>
+      <stop offset="100%" stop-color="#FFB088"></stop>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0B0D10"></rect>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="url(#g)" stroke-opacity="0.35"></rect>
+  <text x="32" y="45" text-anchor="middle" font-family="&#39;Inter&#39;,&#39;Helvetica Neue&#39;,Arial,sans-serif" font-weight="700" font-size="38" letter-spacing="-1.5" fill="url(#g)">DB</text>
+</svg>

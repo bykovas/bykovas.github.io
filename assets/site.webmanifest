@@ -1,0 +1,12 @@
+{
+  "name": "Denisas Bykovas — System Architect",
+  "short_name": "Bykovas",
+  "icons": [
+    { "src": "favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "favicon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "favicon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#0B0D10",
+  "background_color": "#0B0D10",
+  "display": "standalone"
+}

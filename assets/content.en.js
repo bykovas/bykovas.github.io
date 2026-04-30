@@ -5,7 +5,7 @@ window.PORTFOLIO_CONTENT.en = {
   languages:[{href:"index.html",label:"EN",active:true},{href:"index.html?lang=lt",label:"LT"},{href:"index.html?lang=ru",label:"RU"}],
   hero:{
     tag:"Available for engagements · Q2 2026",
-    title:'I architect systems <span class="b">that cannot fail</span>.',
+    title:'I architect systems <span class="b">that cannot&nbsp;fail</span>.',
     lede:[
       "The systems Lithuanians use to file taxes (EDS4 — VMI), move money (CENTROlink — Bank of Lithuania), and run regulated production lines — systems that make the morning news if they stop. Twenty-five years on .NET. PhD in Information Technology. .NET Foundation contributor since 2020.",
       "The work is what nobody else wants to own — legacy stitched to regulation stitched to a release calendar that can't slip. I draw the architecture and stay close enough to the running system that the decisions still hold up after the deploy."
