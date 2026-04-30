@@ -7,7 +7,7 @@ window.PORTFOLIO_CONTENT.en = {
     tag:"Available for engagements · Q2 2026",
     title:'I architect systems <span class="b">that cannot fail</span>.',
     lede:[
-      "Architect on the systems Lithuanians use to file taxes (EDS4 — VMI), move money (CENTROlink — Bank of Lithuania), and run regulated production lines — systems that make the morning news if they stop. Twenty-five years on .NET. PhD in Information Technology. .NET Foundation contributor since 2020.",
+      "The systems Lithuanians use to file taxes (EDS4 — VMI), move money (CENTROlink — Bank of Lithuania), and run regulated production lines — systems that make the morning news if they stop. Twenty-five years on .NET. PhD in Information Technology. .NET Foundation contributor since 2020.",
       "The work is what nobody else wants to own — legacy stitched to regulation stitched to a release calendar that can't slip. I draw the architecture and stay close enough to the running system that the decisions still hold up after the deploy."
     ],
     primaryCta:"Book intro call",primaryHref:"https://cal.com/denisas-bykovas",primaryExternal:true,cvCta:"Download CV ↓"
@@ -31,11 +31,9 @@ window.PORTFOLIO_CONTENT.en = {
       {title:"Architecture engagement",text:"Contracts and advisory work. Regulated environments, legacy co-existence, national or enterprise scale. Typical engagement runs 6 months to 3 years.",buttons:[{label:"Book intro call",href:"https://cal.com/denisas-bykovas",primary:true,external:true},{label:"Email",href:"mailto:bykovas@bykovas.lt"}]},
       {title:"Senior / Principal Architect role",text:"Open to full-time, EU-based or remote. Mission-critical .NET, regulated domains, large legacy footprints welcome.",buttons:[{label:"Download CV",href:"assets/files/denisas-bykovas.pdf",external:true},{label:"LinkedIn",href:"https://www.linkedin.com/in/denisasbykovas/",external:true}]}
     ],
-    footerLine:"bykovas@bykovas.lt · Vilnius (EET) · Available Q2 2026",
-    primaryCta:"Email me",cvCta:"Download CV ↓",
-    links:[{k:"Email",v:"bykovas@bykovas.lt",href:"mailto:bykovas@bykovas.lt"},{k:"LinkedIn",v:"denisasbykovas",href:"https://www.linkedin.com/in/denisasbykovas/",external:true},{k:"Location",v:"Vilnius · LT · EET"}]
+    footerLine:"bykovas@bykovas.lt · Vilnius (EET) · Available Q2 2026"
   },
-  footer:{text:"Built with care, not frameworks.",sourceLabel:"View source"},
+  footer:{text:"Built with care, not frameworks."},
   cvUrl:"assets/files/denisas-bykovas.pdf",
   stats:[
     {v:"10",u:"M+",k:"tax filings / year",c:"EDS4 · VMI"},
