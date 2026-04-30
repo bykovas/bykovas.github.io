@@ -5,7 +5,7 @@ window.PORTFOLIO_CONTENT.en = {
   languages:[{href:"index.html",label:"EN",active:true},{href:"index.html?lang=lt",label:"LT"}],
   hero:{
     tag:"Available for engagements · Q2 2026",
-    title:'System architecture for software <span class="b">that cannot stop</span>.',
+    title:'Systems architecture for infrastructure <span class="b">that cannot fail</span>.',
     lede:[
       "Architect on the systems Lithuanians use to file taxes (EDS4 — VMI), move money (CENTROlink — Bank of Lithuania), and run regulated production lines — systems that make the morning news if they stop. Twenty-five years on .NET. PhD in Information Technology. .NET Foundation contributor since 2020.",
       "The work is what nobody else wants to own — legacy stitched to regulation stitched to a release calendar that can't slip. I draw the architecture and stay close enough to the running system that the decisions still hold up after the deploy."
@@ -26,7 +26,7 @@ window.PORTFOLIO_CONTENT.en = {
   },
   contact:{
     title:'If the system has to <span class="b">keep running</span>, we should talk.',
-    text:"Two ways to engage. Both involve systems that can't go down, regulated environments, and .NET at scale.",
+    text:"Two ways to engage. Both start with the same question: what has to keep running, and what breaks if it does not?",
     tracks:[
       {title:"Architecture engagement",text:"Contracts and advisory work. Regulated environments, legacy co-existence, national or enterprise scale. Typical engagement runs 6 months to 3 years.",buttons:[{label:"Book intro call",href:"https://cal.com/denisas-bykovas",primary:true,external:true},{label:"Email",href:"mailto:bykovas@bykovas.lt"}]},
       {title:"Senior / Principal Architect role",text:"Open to full-time, EU-based or remote. Mission-critical .NET, regulated domains, large legacy footprints welcome.",buttons:[{label:"Download CV",href:"assets/files/denisas-bykovas.pdf",external:true},{label:"LinkedIn",href:"https://www.linkedin.com/in/denisasbykovas/",external:true}]}
@@ -44,7 +44,7 @@ window.PORTFOLIO_CONTENT.en = {
     {v:"25",u:"yrs",k:".NET & systems architecture",c:"Active since 2000"},
   ],
   projects:[
-    { sector:"GovTech · National", year:"2019 — present",
+    { sector:"National Infrastructure", year:"2019 — present",
       title:"EDS4 — National Tax Declaration Platform",
       client:"State Tax Inspectorate · Lead Architect",
       desc:"Modular replacement of the legacy national tax filing platform — used by every taxpayer and accountant in Lithuania. Built for zero-downtime rollout. Releases the regulator can audit on the wire, and tax law changes that ship without forcing a refactor cycle.",
@@ -52,7 +52,7 @@ window.PORTFOLIO_CONTENT.en = {
       comment:'TODO: Replace "multi-agency" with exact integrated-agency count if confirmed.',
       stack:[".NET","MS SQL","Oracle","EDA","CQRS","Azure","OAuth2"]
     },
-    { sector:"FinTech · Payments", year:"2018 — 2022",
+    { sector:"Central Banking Systems", year:"2018 — 2022",
       title:"CENTROlink — National SEPA Payment Gateway",
       client:"Bank of Lithuania · Architect & Integration Lead",
       desc:"Lithuania's national gateway to pan-European payment rails, scaled during its 2018–2022 expansion. Instant and standard SEPA, signed messaging, regulator-observable on every transaction. Deployed alongside the legacy processors — no flag day, no Friday-night switchover.",
