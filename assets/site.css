@@ -114,6 +114,7 @@
 
   /* HERO 2-col with portrait */
   .hero .hero-title{max-width:24ch;margin-bottom:24px;font-size:clamp(38px,4.9vw,62px)}
+  html[lang="lt"] .hero .hero-title{font-size:clamp(36px,4.35vw,56px);max-width:100%}
   .hero .hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:64px;align-items:stretch}
   .hero .hero-text{display:flex;flex-direction:column;justify-content:space-between}
   .hero .hero-grid .lede{margin:0 0 18px}

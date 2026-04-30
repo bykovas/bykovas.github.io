@@ -5,7 +5,7 @@ window.PORTFOLIO_CONTENT.lt = {
   languages:[{href:"index.html",label:"EN"},{href:"index.html?lang=lt",label:"LT",active:true},{href:"index.html?lang=ru",label:"RU"}],
   hero:{
     tag:"Galimas bendradarbiavimas · 2026 Q2",
-    title:'Kuriu sistemas, <span class="b">kurios negali sustoti</span>.',
+    title:'Projektuoju sistemas,<br><span class="b">kurios&nbsp;negali&nbsp;sustoti</span>.',
     lede:[
       "Sistemos, kuriomis Lietuvos gyventojai deklaruoja mokesčius (EDS4 - VMI), atlieka pervedimus (CENTROlink - Lietuvos bankas) ir valdo reglamentuojamas gamybos linijas. Tai kritinė infrastruktūra, kurios sustojimas tampa svarbiausia ryto naujiena. Ketvirtis amžiaus su .NET. IT mokslų daktaras. .NET Foundation vystytojas nuo 2020 m.",
       "Apsiimu tai, ko kiti vengia: kur susiduria sistemų palikimas, griežtas reguliavimas ir nepajudinamas diegimų grafikas. Projektuoju architektūrą ir išlieku arti veikiančios sistemos, kad priimti sprendimai atlaikytų realybę po starto."
