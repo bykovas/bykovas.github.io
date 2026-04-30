@@ -2,7 +2,7 @@ window.PORTFOLIO_CONTENT = window.PORTFOLIO_CONTENT || {};
 window.PORTFOLIO_CONTENT.lt = {
   meta:{lang:"lt",title:"Denisas Bykovas — Sistemų architektas",screenLabel:"Portfolio · LT"},
   nav:[{href:"#work",label:"darbai"},{href:"#approach",label:"metodas"},{href:"#career",label:"karjera"},{href:"#stack",label:"įrankiai"},{href:"#contact",label:"kontaktai"}],
-  languages:[{href:"index.html",label:"EN"},{href:"index.html?lang=lt",label:"LT",active:true}],
+  languages:[{href:"index.html",label:"EN"},{href:"index.html?lang=lt",label:"LT",active:true},{href:"index.html?lang=ru",label:"RU"}],
   hero:{
     tag:"Priimu projektus · 2026 m. II ketv.",
     title:'Sistemų architektūra programinei įrangai, <span class="b">kuri negali sustoti</span>.',

@@ -1,11 +1,11 @@
 window.PORTFOLIO_CONTENT = window.PORTFOLIO_CONTENT || {};
-window.PORTFOLIO_CONTENT.en = {
-  meta:{lang:"en",title:"Denisas Bykovas — System Architect",screenLabel:"Portfolio · EN"},
+window.PORTFOLIO_CONTENT.ru = {
+  meta:{lang:"ru",title:"Denisas Bykovas — System Architect",screenLabel:"Portfolio · RU"},
   nav:[{href:"#work",label:"work"},{href:"#approach",label:"approach"},{href:"#career",label:"career"},{href:"#stack",label:"stack"},{href:"#contact",label:"contact"}],
-  languages:[{href:"index.html",label:"EN",active:true},{href:"index.html?lang=lt",label:"LT"},{href:"index.html?lang=ru",label:"RU"}],
+  languages:[{href:"index.html",label:"EN"},{href:"index.html?lang=lt",label:"LT"},{href:"index.html?lang=ru",label:"RU",active:true}],
   hero:{
     tag:"Available for engagements · Q2 2026",
-    title:'I architect systems <span class="b">that cannot fail</span>.',
+    title:'Systems architecture for infrastructure <span class="b">that cannot fail</span>.',
     lede:[
       "Architect on the systems Lithuanians use to file taxes (EDS4 — VMI), move money (CENTROlink — Bank of Lithuania), and run regulated production lines — systems that make the morning news if they stop. Twenty-five years on .NET. PhD in Information Technology. .NET Foundation contributor since 2020.",
       "The work is what nobody else wants to own — legacy stitched to regulation stitched to a release calendar that can't slip. I draw the architecture and stay close enough to the running system that the decisions still hold up after the deploy."
@@ -33,7 +33,7 @@ window.PORTFOLIO_CONTENT.en = {
     ],
     footerLine:"bykovas@bykovas.lt · Vilnius (EET) · Available Q2 2026",
     primaryCta:"Email me",cvCta:"Download CV ↓",
-    links:[{k:"Email",v:"bykovas@bykovas.lt",href:"mailto:bykovas@bykovas.lt"},{k:"LinkedIn",v:"denisasbykovas",href:"https://www.linkedin.com/in/denisasbykovas/",external:true},{k:"Location",v:"Vilnius · LT · EET"}]
+    links:[{k:"Email",v:"bykovas@bykovas.lt",href:"mailto:bykovas@bykovas.lt"},{k:"GitHub",v:"@bykovas",href:"https://github.com/bykovas",external:true},{k:"LinkedIn",v:"denisasbykovas",href:"https://www.linkedin.com/in/denisasbykovas/",external:true},{k:"Location",v:"Vilnius · LT · EET"}]
   },
   footer:{text:"Built with care, not frameworks.",sourceLabel:"View source"},
   cvUrl:"assets/files/denisas-bykovas.pdf",
@@ -81,16 +81,16 @@ window.PORTFOLIO_CONTENT.en = {
     {n:"04",t:"Leave the team stronger",d:"Mentor engineers into tech leads. Align decisions across teams, reduce tech debt with each release — not after."},
   ],
   career:[
-    { y:"2016 — present", era:"National infrastructure", t:"Lead Architect, National & Enterprise Infrastructure", o:"Engaged through direct contracts with public sector and regulated enterprises.",
+    { y:"2016 — present", era:"Current · National scale", t:"Lead Architect, National & Enterprise Infrastructure", o:"Engaged through direct contracts with public sector and regulated enterprises.",
       intro:"Four nation-scale and enterprise systems — delivered or still running.",
       bullets:["EDS4, national tax filing platform — Lead Architect (VMI)","CENTROlink, national SEPA gateway — Architect & Integration Lead (Bank of Lithuania)","LKvitai.MES, manufacturing execution — Architect","Unmanned utility stations — Architect (Vilniaus Vandenys)"],
       stack:["TOGAF",".NET","MS SQL","Oracle","EDA","Azure","K8s"]
     },
-    { y:"2014 — 2017", era:"Team leadership", t:"Team Lead · Engineering Manager", o:"Flinke Folk AS · Lithuania office",
+    { y:"2014 — 2017", era:"Leadership · Team & delivery", t:"Team Lead · Engineering Manager", o:"Flinke Folk AS · Lithuania office",
       bullets:["Built the Vilnius engineering team from 0 to 12","Logistics and HR platforms for oil & gas clients","Hands-on across architecture, hiring and delivery"],
       stack:["Agile",".NET","MS SQL","Azure AD"]
     },
-    { y:"2004 — 2014", era:"Engineering foundations", t:"Full-stack & Enterprise Developer", o:"BDO · Lauresta · Galeo / Luktarna",
+    { y:"2004 — 2014", era:"Foundations · Engineering", t:"Full-stack & Enterprise Developer", o:"BDO · Lauresta · Galeo / Luktarna",
       bullets:["BDO — Azure document and process automation on SharePoint + .NET","Lauresta — homegrown ERP, 70+ services, full infrastructure ownership","Galeo / Luktarna — distributed inventory & payments for 400+ gas stations"],
       stack:["C","C#","Java","SQL Server","VMware"]
     },

@@ -1,5 +1,6 @@
 const params = new URLSearchParams(window.location.search);
-const lang = params.get('lang') === 'lt' ? 'lt' : 'en';
+const requestedLang = params.get('lang');
+const lang = ['en', 'lt', 'ru'].includes(requestedLang) ? requestedLang : 'en';
 const P = window.PORTFOLIO_CONTENT[lang];
 const mailUrl = 'mailto:bykovas@bykovas.lt';
 
@@ -24,7 +25,7 @@ document.body.dataset.screenLabel = P.meta.screenLabel;
 
 setHtml('nav-links', P.nav.map((item) => '<a href="' + item.href + '">' + item.label + '</a>').join('') + '<span class="lang">' + P.languages.map((item) => '<a href="' + item.href + '"' + (item.active ? ' class="on"' : '') + '>' + item.label + '</a>').join('') + '</span>');
 
-setHtml('hero', '<div class="tag"><span class="d"></span>' + P.hero.tag + '</div>' + '<h1 class="hero-title">' + P.hero.title + '</h1>' + '<div class="hero-grid"><div class="hero-text">' + P.hero.lede.map((text) => '<p class="lede">' + text + '</p>').join('') + '<div class="ctas"><a class="btn primary" href="' + (P.hero.primaryHref || '#contact') + '"' + (P.hero.primaryExternal ? attrs({external:true}) : '') + '>' + P.hero.primaryCta + ' <span class="arrow">→</span></a><a class="btn ghost" id="cv-top" href="' + P.cvUrl + '" target="_blank" rel="noopener">' + P.hero.cvCta + '</a></div></div><div class="hero-portrait" aria-label="Denisas Bykovas"></div></div>' + (P.recognition ? '<div class="recognition">' + P.recognition.map((item) => '<div class="rec"><div class="k">' + item.k + '</div><div class="v">' + item.v + '</div></div>').join('') + '</div>' : '') + (P.trust ? '<div class="trust"><div class="trust-k">' + P.trust.kicker + '</div><div class="trust-items">' + P.trust.rows.map((row) => '<div class="trust-row">' + row.map((item) => '<span>' + item + '</span>').join('') + '</div>').join('') + '</div></div>' : '') + '<div class="stat-row" id="stats"></div>');
+setHtml('hero', '<div class="tag"><span class="d"></span>' + P.hero.tag + '</div>' + '<h1 class="hero-title">' + P.hero.title + '</h1>' + '<div class="hero-grid"><div class="hero-text">' + P.hero.lede.map((text) => '<p class="lede">' + text + '</p>').join('') + '<div class="ctas"><a class="btn primary" href="' + (P.hero.primaryHref || '#contact') + '"' + (P.hero.primaryExternal ? attrs({external:true}) : '') + '>' + P.hero.primaryCta + ' <span class="arrow">→</span></a><a class="btn-link" id="cv-top" href="' + P.cvUrl + '" target="_blank" rel="noopener">' + P.hero.cvCta + '</a></div></div><div class="hero-portrait" aria-label="Denisas Bykovas"></div></div>' + (P.recognition ? '<div class="recognition">' + P.recognition.map((item) => '<div class="rec"><div class="k">' + item.k + '</div><div class="v">' + item.v + '</div></div>').join('') + '</div>' : '') + (P.trust ? '<div class="trust"><div class="trust-k">' + P.trust.kicker + '</div><div class="trust-items">' + P.trust.rows.map((row) => '<div class="trust-row">' + row.map((item) => '<span>' + item + '</span>').join('') + '</div>').join('') + '</div></div>' : '') + '<div class="stat-row" id="stats"></div>');
 
 setHtml('work-head', renderSectionHead(P.sectionHeads.work));
 setHtml('approach-head', renderSectionHead(P.sectionHeads.approach));
