@@ -7,7 +7,7 @@ window.PORTFOLIO_CONTENT.lt = {
     tag:"Galimas bendradarbiavimas · 2026 Q2",
     title:'Projektuoju sistemas,<br><span class="b">kurios&nbsp;negali&nbsp;sustoti</span>.',
     lede:[
-      "Sistemos, kuriomis Lietuvos gyventojai deklaruoja mokesčius (EDS4 - VMI), atlieka pervedimus (CENTROlink - Lietuvos bankas) ir valdo reglamentuojamas gamybos linijas. Tai kritinė infrastruktūra, kurios sustojimas tampa svarbiausia ryto naujiena. Ketvirtis amžiaus su .NET. IT mokslų daktaras. .NET Foundation vystytojas nuo 2020 m.",
+      "Sistemos, kuriomis Lietuvos gyventojai deklaruoja mokesčius (EDS4 - VMI), atlieka pervedimus (CENTROlink - Lietuvos bankas) ir valdo reglamentuojamas gamybos linijas. Tai kritinė infrastruktūra, kurios sustojimas tampa svarbiausia ryto naujiena. Ketvirtis amžiaus su .NET; IT mokslų daktaras; .NET Foundation narys nuo 2020 m.",
       "Apsiimu tai, ko kiti vengia: kur susiduria sistemų palikimas, griežtas reguliavimas ir nepajudinamas diegimų grafikas. Projektuoju architektūrą ir išlieku arti veikiančios sistemos, kad priimti sprendimai atlaikytų realybę po starto."
     ],
     primaryCta:"Susitarti dėl skambučio",primaryHref:"https://cal.com/denisas-bykovas",primaryExternal:true,cvCta:"Atsisiųsti CV ↓"
@@ -21,7 +21,7 @@ window.PORTFOLIO_CONTENT.lt = {
   sectionHeads:{
     work:{kicker:"Darbai / 04",title:"Atrinkti projektai",right:"Nacionalinė ir įmonių apimtis · 2018 - dabar"},
     approach:{kicker:"Metodas",title:"Kaip iš tikrųjų dirbu"},
-    career:{kicker:"Karjera",title:"Dvidešimt penkeri metai, trys etapai"},
+    career:{kicker:"Karjera",title:"Karjera"},
     stack:{kicker:"Įrankiai",title:"Įrankiai ir technologijos"}
   },
   contact:{
@@ -79,7 +79,7 @@ window.PORTFOLIO_CONTENT.lt = {
       bullets:["EDS4 - nacionalinė mokesčių platforma, modulinė architektūra šalies apimtimi","SEPA vartai per RT1, STEP2, TARGET, TIPS EBA","Įterptinė telemetrija ir CV bepilotėms komunalinėms stotelėms","Įvykiais paremtas MES, gamybos integracija Azure"],
       stack:["TOGAF",".NET","MS SQL","Oracle","EDA","Azure","K8s"]
     },
-    { y:"2014 - 2017", era:"Vadovavimas", t:"Komandos vadovas · Inžinerijos vadybininkas", o:"Flinke Folk AS · Lietuvos biuras",
+    { y:"2014 - 2017", era:"Vadovavimas", t:"IT įmonės vadovas · Inžinerijos vadybininkas", o:"Flinke Folk AS · Lietuvos biuras",
       bullets:["Sukūriau Vilniaus inžinerijos komandą nuo 0 iki 12","Logistikos ir HR platformos naftos ir dujų klientams","Praktiškai prie architektūros, samdos ir įgyvendinimo"],
       stack:["Agile",".NET","MS SQL","Azure AD"]
     },
