@@ -1,10 +1,10 @@
 window.PORTFOLIO_CONTENT = window.PORTFOLIO_CONTENT || {};
 window.PORTFOLIO_CONTENT.ru = {
   meta:{lang:"ru",title:"Денисас Быковас - системный архитектор",screenLabel:"Портфолио · RU"},
-  nav:[{href:"#work",label:"проекты"},{href:"#approach",label:"подход"},{href:"#career",label:"карьера"},{href:"#stack",label:"стек"},{href:"#contact",label:"контакты"}],
+  nav:[{href:"#work",label:"проекты"},{href:"#approach",label:"подход"},{href:"#career",label:"карьера"},{href:"#stack",label:"стек"},{href:"#contact",label:"контакты"},{href:"assets/files/denisas-bykovas.pdf",label:"cv ↗",external:true}],
   languages:[{href:"index.html",label:"EN"},{href:"index.html?lang=lt",label:"LT"},{href:"index.html?lang=ru",label:"RU",active:true}],
   hero:{
-    tag:"Доступен для проектов · Q2 2026",
+    tag:"Доступен для проектов · с января 2027",
     title:'Я проектирую системы, <span class="b">которые не могут подвести</span>.',
     lede:[
       "Системы, которыми жители Литвы пользуются для подачи налоговых деклараций (EDS4 - VMI), перевода денег (CENTROlink - Банк Литвы) и управления производственными линиями - инфраструктура, сбой в которой становится главной новостью утра. 25 лет на .NET. Доктор наук (PhD) в области ИТ. Контрибьютор .NET Foundation с 2020 года.",
@@ -31,7 +31,7 @@ window.PORTFOLIO_CONTENT.ru = {
       {title:"Архитектурное участие",text:"Контрактная и консультационная работа. Регулируемые среды, сосуществование с legacy, национальный или корпоративный масштаб. Типичный формат - от 6 месяцев до 3 лет.",buttons:[{label:"Назначить звонок",href:"https://cal.com/denisas-bykovas",primary:true,external:true},{label:"Email",href:"mailto:bykovas@bykovas.lt"}]},
       {title:"Роль Senior / Principal Architect",text:"Открыт к full-time формату в ЕС или удаленно. Mission-critical .NET, регулируемые домены и большие legacy-ландшафты приветствуются.",buttons:[{label:"Скачать CV",href:"assets/files/denisas-bykovas.pdf",external:true},{label:"LinkedIn",href:"https://www.linkedin.com/in/denisasbykovas/",external:true}]}
     ],
-    footerLine:"bykovas@bykovas.lt · Вильнюс (EET) · Доступен Q2 2026"
+    footerLine:"bykovas@bykovas.lt · Вильнюс (EET) · Доступен с января 2027"
   },
   footer:{text:"Сделано с вниманием, без фреймворков."},
   cvUrl:"assets/files/denisas-bykovas.pdf",

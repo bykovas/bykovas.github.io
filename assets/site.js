@@ -23,16 +23,16 @@ document.documentElement.lang = P.meta.lang;
 document.title = P.meta.title;
 document.body.dataset.screenLabel = P.meta.screenLabel;
 
-setHtml('nav-links', P.nav.map((item) => '<a href="' + item.href + '">' + item.label + '</a>').join('') + '<span class="lang">' + P.languages.map((item) => '<a href="' + item.href + '"' + (item.active ? ' class="on"' : '') + '>' + item.label + '</a>').join('') + '</span>');
+setHtml('nav-links', P.nav.map((item) => '<a href="' + item.href + '"' + attrs(item) + '>' + item.label + '</a>').join('') + '<span class="lang">' + P.languages.map((item) => '<a href="' + item.href + '"' + (item.active ? ' class="on"' : '') + '>' + item.label + '</a>').join('') + '</span>');
 
-setHtml('hero', '<div class="tag"><span class="d"></span>' + P.hero.tag + '</div>' + '<div class="hero-grid"><div class="hero-text"><h1 class="hero-title">' + P.hero.title + '</h1>' + P.hero.lede.map((text) => '<p class="lede">' + text + '</p>').join('') + '<div class="ctas"><a class="btn primary" href="' + (P.hero.primaryHref || '#contact') + '"' + (P.hero.primaryExternal ? attrs({external:true}) : '') + '>' + P.hero.primaryCta + ' <span class="arrow">→</span></a><a class="btn-link" id="cv-top" href="' + P.cvUrl + '" target="_blank" rel="noopener">' + P.hero.cvCta + '</a></div></div><div class="hero-portrait" aria-label="Denisas Bykovas"></div></div>' + (P.recognition ? '<div class="recognition">' + P.recognition.map((item) => '<div class="rec"><div class="k">' + item.k + '</div><div class="v">' + item.v + '</div></div>').join('') + '</div>' : '') + (P.trust ? '<div class="trust"><div class="trust-k">' + P.trust.kicker + '</div><div class="trust-items">' + P.trust.rows.map((row) => '<div class="trust-row">' + row.map((item) => '<span>' + item + '</span>').join('') + '</div>').join('') + '</div></div>' : '') + '<div class="stat-row" id="stats"></div>');
+setHtml('hero', '<div class="tag"><span class="d"></span>' + P.hero.tag + '</div>' + '<div class="hero-grid"><div class="hero-text"><h1 class="hero-title">' + P.hero.title + '</h1>' + (P.hero.subtitle ? '<p class="hero-sub">' + P.hero.subtitle + '</p>' : '') + P.hero.lede.map((text, i) => '<p class="lede' + (i === 0 ? ' lede-first' : '') + '">' + text + '</p>').join('') + '<div class="ctas"><a class="btn primary" href="' + (P.hero.primaryHref || '#contact') + '"' + (P.hero.primaryExternal ? attrs({external:true}) : '') + '>' + P.hero.primaryCta + ' <span class="arrow">→</span></a><a class="btn-link" id="cv-top" href="' + P.cvUrl + '" target="_blank" rel="noopener">' + P.hero.cvCta + '</a></div></div><div class="hero-portrait" aria-label="Denisas Bykovas"></div></div>' + (P.recognition ? '<div class="recognition">' + P.recognition.map((item) => '<div class="rec"><div class="k">' + item.k + '</div><div class="v">' + item.v + '</div></div>').join('') + '</div>' : '') + (P.trust ? '<div class="trust"><div class="trust-k">' + P.trust.kicker + '</div><div class="trust-items">' + P.trust.rows.map((row) => '<div class="trust-row">' + row.map((item) => '<span>' + item + '</span>').join('') + '</div>').join('') + '</div></div>' : '') + (P.stats ? '<div class="stat-row" id="stats"></div>' : ''));
 
 setHtml('work-head', renderSectionHead(P.sectionHeads.work));
 setHtml('approach-head', renderSectionHead(P.sectionHeads.approach));
 setHtml('career-head', renderSectionHead(P.sectionHeads.career));
 setHtml('stack-head', renderSectionHead(P.sectionHeads.stack));
 
-setHtml('stats', P.stats.map((s) => '<div class="s"><div class="v">' + s.v + '<span class="u">' + s.u + '</span></div><div class="k">' + s.k + '</div><div class="c">' + s.c + '</div></div>').join(''));
+if (P.stats) setHtml('stats', P.stats.map((s) => '<div class="s"><div class="v">' + s.v + '<span class="u">' + s.u + '</span></div><div class="k">' + s.k + '</div><div class="c">' + s.c + '</div></div>').join(''));
 
 setHtml('projects', P.projects.map((p) => '<article class="card">' + comment(p.comment) + '<div class="head"><span class="sector">' + p.sector + '</span><span class="yr">' + p.year + '</span></div><h3>' + p.title + '</h3><div class="client">' + p.client + '</div><p class="desc">' + p.desc + '</p><div class="metrics">' + p.metrics.map((m) => '<div class="m"><div class="v ' + (m.hi ? 'hi' : '') + '">' + m.v + '</div><div class="k">' + m.k + '</div></div>').join('') + '</div><div class="stack">' + p.stack.map((s) => '<span class="chip">' + s + '</span>').join('') + '</div></article>').join(''));
 
@@ -43,12 +43,12 @@ setHtml('timeline', P.career.map((r) => '<div class="role"><div class="y"><b>' +
 setHtml('skills', P.skills.map((s) => '<div class="sk-col"><h4>' + s.g + '</h4><ul>' + s.i.map((i) => '<li>' + i + '</li>').join('') + '</ul></div>').join(''));
 
 if (P.contact.tracks) {
-  setHtml('contact-card', '<div class="contact-head"><h2>' + P.contact.title + '</h2><p>' + P.contact.text + '</p></div><div class="contact-tracks">' + P.contact.tracks.map((track) => '<div class="track"><h3>' + track.title + '</h3><p>' + track.text + '</p><div class="ctas">' + track.buttons.map(renderButton).join('') + '</div></div>').join('') + '</div>' + (P.contact.footerLine ? '<div class="contact-foot">' + P.contact.footerLine + '</div>' : ''));
+  setHtml('contact-card', '<div class="contact-head"><h2>' + P.contact.title + '</h2><p>' + P.contact.text + '</p></div><div class="contact-tracks">' + P.contact.tracks.map((track) => '<div class="track"><h3>' + track.title + '</h3><p>' + track.text + '</p>' + (track.buttons && track.buttons.length ? '<div class="ctas">' + track.buttons.map(renderButton).join('') + '</div>' : '') + '</div>').join('') + '</div>' + (P.contact.footerLine ? '<div class="contact-foot">' + P.contact.footerLine + '</div>' : ''));
 } else {
   setHtml('contact-card', '<div class="inner"><div><h2>' + P.contact.title + '</h2><p>' + P.contact.text + '</p><div class="ctas"><a class="btn primary" href="' + mailUrl + '">' + P.contact.primaryCta + ' <span class="arrow">→</span></a><a class="btn ghost" id="cv-bot" href="' + P.cvUrl + '" target="_blank" rel="noopener">' + P.contact.cvCta + '</a></div></div><div class="right">' + P.contact.links.map((item) => { const content = '<span class="k">' + item.k + '</span><span class="v">' + item.v + '</span>'; return item.href ? '<a href="' + item.href + '"' + attrs(item) + '>' + content + '</a>' : '<a>' + content + '</a>'; }).join('') + '</div></div>');
 }
 
-setHtml('footer', '<div>© <span id="y"></span> Denisas Bykovas · ' + P.footer.text + '</div>');
+setHtml('footer', '<div>© <span id="y"></span> Denisas Bykovas · ' + P.footer.text + '</div>' + (P.footer.links ? '<div class="foot-links">' + P.footer.links.map((item) => item.href ? '<a href="' + item.href + '"' + attrs(item) + '>' + item.label + '</a>' : '<span>' + item.label + '</span>').join('') + '</div>' : ''));
 document.getElementById('y').textContent = '2026';
 
 document.querySelectorAll('.card').forEach((card) => {

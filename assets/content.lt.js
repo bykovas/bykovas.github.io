@@ -1,10 +1,10 @@
 window.PORTFOLIO_CONTENT = window.PORTFOLIO_CONTENT || {};
 window.PORTFOLIO_CONTENT.lt = {
   meta:{lang:"lt",title:"Denisas Bykovas - Sistemų architektas",screenLabel:"Portfolio · LT"},
-  nav:[{href:"#work",label:"darbai"},{href:"#approach",label:"metodas"},{href:"#career",label:"karjera"},{href:"#stack",label:"įrankiai"},{href:"#contact",label:"kontaktai"}],
+  nav:[{href:"#work",label:"darbai"},{href:"#approach",label:"metodas"},{href:"#career",label:"karjera"},{href:"#stack",label:"įrankiai"},{href:"#contact",label:"kontaktai"},{href:"assets/files/denisas-bykovas.pdf",label:"cv ↗",external:true}],
   languages:[{href:"index.html",label:"EN"},{href:"index.html?lang=lt",label:"LT",active:true},{href:"index.html?lang=ru",label:"RU"}],
   hero:{
-    tag:"Galimas bendradarbiavimas · 2026 Q2",
+    tag:"Galimas bendradarbiavimas · nuo 2027 m. sausio",
     title:'Projektuoju sistemas,<br><span class="b">kurios&nbsp;negali&nbsp;sustoti</span>.',
     lede:[
       "Sistemos, kuriomis Lietuvos gyventojai deklaruoja mokesčius (EDS4 - VMI), atlieka pervedimus (CENTROlink - Lietuvos bankas) ir valdo reglamentuojamas gamybos linijas. Tai kritinė infrastruktūra, kurios sustojimas tampa svarbiausia ryto naujiena. Ketvirtis amžiaus su .NET; IT mokslų daktaras; .NET Foundation narys nuo 2020 m.",
